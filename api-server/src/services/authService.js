@@ -6,10 +6,8 @@ export const login = async (email, password) => {
   const user = await findUserByEmail(email);
   if (!user) return null;
 
-  //   const valid = await bcrypt.compare(password, user.PasswordHash);
-  //   if (!valid) return null;
-
-  if (password !== user.PasswordHash) return null; // Simple password check, replace with bcrypt in production
+  const valid = await bcrypt.compare(password, user.PasswordHash);
+  if (!valid) return null;
 
   // Generate JWT token
   const token = jwt.sign(
