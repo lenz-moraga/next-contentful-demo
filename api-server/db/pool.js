@@ -4,7 +4,7 @@ import { Pool } from "pg";
 dotenv.config({ path: ".env.local" });
 
 // Load env before creating pool
-if (!process.env.NODE_ENV === "development") {
+if (process.env.NODE_ENV !== "development") {
   dotenv.config();
 }
 
