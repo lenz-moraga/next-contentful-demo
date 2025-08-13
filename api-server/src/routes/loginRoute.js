@@ -7,7 +7,11 @@ router.post("/", async (req, res) => {
   const { email, password } = req.body;
   try {
     const token = await login(email, password);
-    
+
+    if (!token) {
+      return res.status(401).json({ error: "Invalid email or password" });
+    }
+
     res.json({ token });
   } catch (error) {
     console.error("Login error:", error);
