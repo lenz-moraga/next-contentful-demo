@@ -38,7 +38,7 @@ router.get(
 router.post(
   "/",
   authenticate,
-  authorize(["admin", "editor"]),
+  authorize(["Admin", "editor"]),
   async (req, res) => {
     try {
       const { name, description } = req.body;
@@ -56,7 +56,7 @@ router.post(
 router.put(
   "/:id",
   authenticate,
-  authorize(["admin", "editor"]),
+  authorize(["Admin", "editor"]),
   async (req, res) => {
     const { id } = req.params;
     const { name, description } = req.body;
@@ -72,7 +72,7 @@ router.put(
 );
 
 // Delete a project by ID
-router.delete("/:id", authenticate, authorize(["admin"]), async (req, res) => {
+router.delete("/:id", authenticate, authorize(["Admin"]), async (req, res) => {
   const { id } = req.params;
   try {
     const deleted = await service.removeProject(id);
