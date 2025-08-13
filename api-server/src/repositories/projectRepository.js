@@ -9,7 +9,7 @@ export const getProjectById = async (id) => {
   const { rows } = await pool.query("SELECT * FROM projects WHERE id = $1", [
     id,
   ]);
-  return rows[0];
+  return rows;
 };
 
 export const createProject = async (name, description) => {
@@ -17,7 +17,7 @@ export const createProject = async (name, description) => {
     "INSERT INTO projects (name, description) VALUES ($1, $2) RETURNING *",
     [name, description]
   );
-  return rows[0];
+  return rows;
 };
 
 export const updateProject = async (id, name, description) => {
@@ -25,7 +25,7 @@ export const updateProject = async (id, name, description) => {
     "UPDATE projects SET name = $1, description = $2 WHERE id = $3 RETURNING *",
     [name, description, id]
   );
-  return rows[0];
+  return rows;
 };
 
 export const deleteProject = async (id) => {
