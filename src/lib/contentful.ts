@@ -1,10 +1,11 @@
 import { GET_ALL_POSTS, GET_POST_BY_SLUG } from "./queries";
+import { Document } from "@contentful/rich-text-types";
 
 export interface Post {
   title: string;
   slug: string;
   content: {
-    json: any;
+    json: Document;
   };
   coverImage?: {
     url: string;
@@ -23,9 +24,9 @@ const spaceId = process.env.CONTENTFUL_SPACE_ID;
 const accessToken = process.env.CONTENTFUL_ACCESS_TOKEN;
 const graphqlUrl = process.env.CONTENTFUL_GRAPHQL_URL;
 
-export async function fetchContent<T = any>(
+export async function fetchContent<T = unknown>(
   query: string,
-  variables?: Record<string, any>
+  variables?: Record<string, unknown>
 ): Promise<T> {
   const missingVars = [];
   if (!spaceId) missingVars.push("CONTENTFUL_SPACE_ID");
@@ -55,6 +56,7 @@ export async function fetchContent<T = any>(
   }
 
   const json = await response.json();
+
   return json.data;
 }
 
