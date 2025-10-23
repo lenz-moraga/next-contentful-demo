@@ -1,35 +1,49 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Next.js Contentful Demo
 
-## Getting Started
+This is a demo project that demonstrates how to use Next.js with Contentful. It includes a Next.js frontend and an Express.js backend.
+
+## Frontend (Next.js)
+
+The frontend is a Next.js application that displays content from Contentful.
+
+### Getting Started
 
 First, run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+You can start editing the page by modifying `src/app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Backend (Express.js)
 
-## Learn More
+The backend is an Express.js application that provides an API for the frontend.
 
-To learn more about Next.js, take a look at the following resources:
+### Getting Started
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Navigate to the `api-server` directory and install the dependencies:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+cd api-server
+npm install
+```
 
-## Deploy on Vercel
+Then, start the server:
+
+```bash
+npm start
+```
+
+The API server will be running on [http://localhost:3001](http://localhost:3001).
+
+## Contentful
+
+This project uses Contentful to manage content. You will need to create a Contentful account and set up a space with the required content models.
+
+## Deployment
 
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
